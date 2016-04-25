@@ -23,4 +23,9 @@ public class Password {
         String passWordWithLessThanEight = "abc2d";
         assertFalse(PasswordValidator.validate(passWordWithLessThanEight));
     }
+
+    @Test
+    public void shouldHasAnUnderscore (){
+        assertFalse(PasswordValidator.validate("abc2deFgh"));
+    }
 }
