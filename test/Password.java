@@ -39,4 +39,9 @@ public class Password {
     public void shouldContainALowerLetter(){
         assertFalse(PasswordValidator.validate("ABC2DE_FGH"));
     }
+
+    @Test
+    public void shouldContainANumber(){
+        assertFalse(PasswordValidator.validate("abcasde_Fgh"));
+    }
 }

@@ -5,7 +5,8 @@ public class PasswordValidator {
         return hasMoreThanEightCharacters(password)
                && hasAnUnderscore(password)
                && containsAtLeastOneUppercaseCharacter(password)
-               && containsAtLeastOneLowercaseCharacter(password);
+               && containsAtLeastOneLowercaseCharacter(password)
+               && containsAtLeastOneNumber(password);
     }
 
     private static boolean containsAtLeastOneLowercaseCharacter(String password) {
@@ -14,6 +15,10 @@ public class PasswordValidator {
 
     private static boolean containsAtLeastOneUppercaseCharacter(String password) {
         return matchPattern(password, "[A-Z]+");
+    }
+
+    private static boolean containsAtLeastOneNumber(String password) {
+        return matchPattern(password, "[0-9]+");
     }
 
     private static boolean matchPattern(String password, String regex) {
