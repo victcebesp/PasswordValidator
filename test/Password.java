@@ -29,4 +29,9 @@ public class Password {
         String passwordWithoutUnderscore = "abc2deFgh";
         assertFalse(PasswordValidator.validate(passwordWithoutUnderscore));
     }
+
+    @Test
+    public void shouldContainACapitalLetter (){
+        assertFalse(PasswordValidator.validate("abc2de_gh"));
+    }
 }
