@@ -26,6 +26,7 @@ public class Password {
 
     @Test
     public void shouldHasAnUnderscore (){
-        assertFalse(PasswordValidator.validate("abc2deFgh"));
+        String passwordWithoutUnderscore = "abc2deFgh";
+        assertFalse(PasswordValidator.validate(passwordWithoutUnderscore));
     }
 }
