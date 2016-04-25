@@ -1,5 +1,4 @@
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import static java.util.regex.Pattern.compile;
 
 public class PasswordValidator {
     public static boolean validate(String password){
@@ -10,15 +9,15 @@ public class PasswordValidator {
     }
 
     private static boolean containsAtLeastOneLowercaseCharacter(String password) {
-        Pattern pattern = Pattern.compile("[a-z]+");
-        Matcher matcher = pattern.matcher(password);
-        return matcher.find();
+        return matchPattern(password, "[a-z]+");
     }
 
     private static boolean containsAtLeastOneUppercaseCharacter(String password) {
-        Pattern pattern = Pattern.compile("[A-Z]+");
-        Matcher matcher = pattern.matcher(password);
-        return matcher.find();
+        return matchPattern(password, "[A-Z]+");
+    }
+
+    private static boolean matchPattern(String password, String regex) {
+        return compile(regex).matcher(password).find();
     }
 
     private static boolean hasAnUnderscore(String password) {
