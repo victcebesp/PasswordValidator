@@ -1,5 +1,5 @@
 public class PasswordValidator {
-    public static boolean validate(String pass){
-        return true;
+    public static boolean validate(String password){
+        return password.length() >= 8;
     }
 }
