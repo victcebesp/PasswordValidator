@@ -4,7 +4,15 @@ import java.util.regex.Pattern;
 public class PasswordValidator {
     public static boolean validate(String password){
         return hasMoreThanEightCharacters(password)
-               && hasAnUnderscore(password) && containsAtLeastOneUppercaseCharacter(password);
+               && hasAnUnderscore(password)
+               && containsAtLeastOneUppercaseCharacter(password)
+               && containsAtLeastOneLowercaseCharacter(password);
+    }
+
+    private static boolean containsAtLeastOneLowercaseCharacter(String password) {
+        Pattern pattern = Pattern.compile("[a-z]+");
+        Matcher matcher = pattern.matcher(password);
+        return matcher.find();
     }
 
     private static boolean containsAtLeastOneUppercaseCharacter(String password) {
