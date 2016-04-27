@@ -6,37 +6,28 @@ import static org.junit.Assert.assertTrue;
 
 public class Password {
 
-    private String validPassWord;
-
-    @Before
-    public void setUp() throws Exception {
-        validPassWord = "abc2de_Fgh";
-    }
-
     @Test
-    public void shouldBeAValidPassword(){
-        assertTrue(PasswordValidator.validate(validPassWord));
+    public void shouldBeAValidPassword() {
+        assertTrue(PasswordValidator.validate("abc2de_Fgh"));
     }
 
     @Test
     public void shouldHasEightCharacters(){
-        String passWordWithLessThanEight = "abc2d";
-        assertFalse(PasswordValidator.validate(passWordWithLessThanEight));
+        assertFalse(PasswordValidator.validate("abc2d"));
     }
 
     @Test
     public void shouldHasAnUnderscore (){
-        String passwordWithoutUnderscore = "abc2deFgh";
-        assertFalse(PasswordValidator.validate(passwordWithoutUnderscore));
+        assertFalse(PasswordValidator.validate("abc2deFgh"));
     }
 
     @Test
-    public void shouldContainACapitalLetter(){
+    public void shouldContainACapitalLetter() {
         assertFalse(PasswordValidator.validate("abc2de_gh"));
     }
     
     @Test
-    public void shouldContainALowerLetter(){
+    public void shouldContainALowerLetter() {
         assertFalse(PasswordValidator.validate("ABC2DE_FGH"));
     }
 
